@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  wpt-server:
+    image: "webpagetest/server:latest"
+    hostname: local-wptserver
+    ports:
+      - "4000:80"
+    volumes:
+      - "/var/www/html"
+      - "/var/www/html/results"
+      - "/var/www/html/settings"
+    # network_mode: "host"
+# TODO: wpt-agent network setting only works on "host", otherwise need to register via a reverse-proxy
+  wpt-agent: 
+    image: "webpagetest/agent:latest"
+    hostname: local-wptagent
+    environment:
+      - SERVER_URL=http://localhost:4000/work/
+      - LOCATION=Test
+      - EXTRA_ARGS=--shaper none
+    # network_mode: "host"
+    depends_on:
+      - wpt-server
