@@ -13,7 +13,6 @@
   },
   "main": "Gruntfile.js",
   "dependencies": {
-    "grunt": "^1.0.1",
     "jshint": "^2.9.5",
     "perfbudget": "^0.0.9"
   },

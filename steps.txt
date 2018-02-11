@@ -8,6 +8,15 @@ docker run -d -p 4001:80 \
     -e "EXTRA_ARGS=--shaper none" \
     webpagetest/agent
 
+#for sierra
+docker run -d -p 4001:80 \
+	--net=host \
+    --network="host" \
+    -e "SERVER_URL=http://wpt.local:4000/work/" \
+    -e "LOCATION=Test" \
+    -e "EXTRA_ARGS=--shaper none" \
+    webpagetest/agent
+
 
 # custom docker file
 $ docker run -d -p 4000:80 local-wptserver
@@ -28,3 +37,6 @@ grunt perf --url=https://www.google.com.au --wpt=http://localhost:4000 --timeout
 
 #getting a key
 https://www.webpagetest.org/getkey.php
+
+
+sudo: unable to resolve host linuxkit-025000000001

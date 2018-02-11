@@ -9,6 +9,12 @@ This contains settings for setting up
 
 The image: https://hub.docker.com/r/webpagetest/server/
 
+Locations settings: 
+```
+/var/www/html/settings/locations.ini
+```
+See: locations.ini in this project
+
 # wpt-agent
 
 The image: https://hub.docker.com/r/webpagetest/agent/
